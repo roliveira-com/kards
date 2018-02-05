@@ -1,0 +1,19 @@
+{
+  "name": "kards",
+  "version": "1.0.0",
+  "description": "a personal noter organizer in cards styles",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roliveira-com/kards.git"
+  },
+  "author": "roliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roliveira-com/kards/issues"
+  },
+  "homepage": "https://github.com/roliveira-com/kards#readme"
+}
