@@ -1,4 +1,6 @@
-let logado = JSON.parse(localStorage.getItem("logado"))
+let logado = JSON.parse(localStorage.getItem("logado"));
+let usuario = localStorage.getItem("usuario");
+let login = new EventEmitter2();
 
 LoginUsuario_render({
     logado: logado,
@@ -6,11 +8,14 @@ LoginUsuario_render({
     onLogin: (nomeUsuario) => {
         logado = true
         localStorage.setItem("logado", true)
-        localStorage.setItem("nomeUsuario", nomeUsuario)
+        localStorage.setItem("nomeUsuario", nomeUsuario);
+        usuario = nomeUsuario;
+        login.emit("login");
     },
     onLogout: () => {
         logado = false
         localStorage.setItem("logado", false)
-        localStorage.removeItem("nomeUsuario")
+        localStorage.removeItem("nomeUsuario");
+        login.emit("logout");
     }
 })
