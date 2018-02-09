@@ -4,6 +4,7 @@
   "description": "a personal noter organizer in cards styles",
   "main": "index.html",
   "scripts": {
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/roliveira-com/kards/issues"
   },
-  "homepage": "https://github.com/roliveira-com/kards#readme"
+  "homepage": "https://github.com/roliveira-com/kards#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
 }
