@@ -13,7 +13,7 @@ LoginUsuario_render({
         login.emit("login");
     },
     onLogout: () => {
-        logado = false
+        logado = false  
         localStorage.setItem("logado", false)
         localStorage.removeItem("nomeUsuario");
         login.emit("logout");
