@@ -27,6 +27,16 @@ const Mural = (function(_render, Filtro){
     };
 
     function preparaCartao(cartao) {
+        // salvando imagens no app cache
+        const imgUrls = Cartao.pegaImagens(cartao);
+        imgUrls.forEach(url => {
+            fetch(url).then(resp => {
+                caches.open('kards-images').then(cache =>{
+                    cache.put(url, resp);
+                })
+            })
+        })
+
         cartao.on("mudanca.**", salvaCartoes)
         cartao.on("remocao", () => {
             cartoes = cartoes.slice(0)
