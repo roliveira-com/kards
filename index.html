@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" manifest="offline.manifest">
+<html lang="pt-br" manifest="app.manifest">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
@@ -12,25 +12,35 @@
 	<link rel="stylesheet" href="css/loginStatus.css">
   <link rel="stylesheet" href="css/cartao.css">
   <link rel="stylesheet" href="css/novoCartao.css">
-  <link rel="stylesheet" href="css/mural.css">
-  <title>Ceep</title>
+	<link rel="stylesheet" href="css/mural.css">
+	<link rel="shortcut icon" href="img/kards.svg?v=2">
+  <title>Kards</title>
 </head>
 <body>
   <header class="cabecalho container">
     <h1 class="cabecalho-logo">
-      Ceep
+      <img class="cabecalho-logo" src="img/kards.svg" alt="">
     </h1>
-    <div class="opcoesDaPagina">
-		<input type="search" placeholder="busca" id="busca" class="opcoesDaPagina-opcao">
-		<button id="mudaLayout" class="opcoesDaPagina-opcao opcoesDaPagina-botao">Linhas</button>
+    <div class="nav-items">
+			<div class="nav-items__login"></div>
+			<button id="novo-cartao__trigger" class="loginStatus-sair">Novo Cartão</button>
     </div>
   </header>
-	<form class="novoCartao container">
+	<form class="novoCartao container collapsed">
+		<div class="opcoesDaPagina">
+			<button id="novo-cartao__trigger" class="loginStatus-sair">Novo Cartão</button>
+		</div>
+		<h2 class="novoCartao-titulo"><img src="img/add-kard.svg" alt=""> Novo card</h2>
 		<textarea class="novoCartao-conteudo" name="novoCartao-conteudo" placeholder="Digite aqui"></textarea>
 		<input class="novoCartao-salvar" type="submit" value="Salvar">
 	</form>
-	<section class="container login"></section>
+	<!-- <section class="container login"></section> -->
+	<section class="container opcoesDaPagina">
+			<input type="search" placeholder="busca" id="busca" class="opcoesDaPagina-opcao">
+			<button id="mudaLayout" class="opcoesDaPagina-opcao opcoesDaPagina-botao">Linhas</button>
+	</section>
 	<section class="container mural"></section>
+	<script src="js/service-worker/init.js"></script>
 	<script src="js/lib/jquery.js"></script>
 	<script src="js/lib/eventemitter2.js"></script>
 	<script src="js/lib/KeyBoardNavigation.js"></script>

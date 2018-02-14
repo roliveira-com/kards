@@ -1,5 +1,6 @@
 .cabecalho {
-	background-color: #0082C7;
+	position: relative;
+	background-color: #fcca46;
 	font-size: 1rem;
 	padding-top: .5em;
 	padding-bottom: .5em;
@@ -9,9 +10,21 @@
 	justify-content: space-between;
 	align-items: center;
 	align-content: center;
+	box-shadow: 1px 5px 4px -3px rgba(0,0,0,0.2);
+	z-index: 5;
+}
+
+.nav-items__login{
+	display: inline-block;
+	position: relative;
+	top: -1px;
 }
 
 .cabecalho-logo {
+	height: 40px;
+}
+
+/* .cabecalho-logo {
 	font-size: 2em;
 	margin-bottom: .3em;
 	font-family: "Verdana", "Helvetica", sans-serif;
@@ -20,4 +33,4 @@
 	vertical-align: middle;
 	margin-right: 1em;
 	margin-bottom: 0;
-}
+} */

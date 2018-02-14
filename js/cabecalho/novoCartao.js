@@ -1,6 +1,18 @@
 (function($, Mural, Cartao, Tags, Busca){
 	"use strict"
 
+	$("#novo-cartao__trigger").on("click", function(){
+		let mural = $(".novoCartao")
+
+		mural.toggleClass("collapsed")
+
+		if(mural.hasClass("collapsed")){
+			$(this).addClass('focus')
+		} else {
+			$(this).removeClass('focus')
+		}
+	})
+
 	$(".novoCartao").submit(function(event){
 		event.preventDefault()
 		let $campoConteudo = $(".novoCartao-conteudo")
@@ -8,6 +20,7 @@
 		if(conteudo){
 			let novoCartao = new Cartao(conteudo)
 			if(Mural.adiciona(novoCartao)){
+				$campoConteudo.removeClass('focus')
 				$campoConteudo.val("")
 			} else {
 				alert("Você não está logado")
@@ -25,6 +38,7 @@
 		let tags = Busca.tags.reduce(function(txt,tag){
 			return txt + "\n" + tag
 		},"")
+		$campoConteudo.addClass('focus')
 		$campoConteudo.val(tags && (txt + "\n" + tags))
 	})
 })(jQuery, Mural, Cartao, Tags, Busca)

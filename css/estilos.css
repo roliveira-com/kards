@@ -8,6 +8,11 @@ body {
   background: #E8E8E8;
 }
 
+input,
+button {
+  outline: none !important;
+}
+
 .container {
 	padding: 0 10%;
 }

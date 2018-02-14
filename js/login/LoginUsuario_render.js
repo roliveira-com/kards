@@ -3,10 +3,9 @@ const LoginUsuario_render = (function($){
         let $loginForm = $("<form>")
                         .addClass("loginForm")
 
-        let $labelInputUsuario = $("<label>")
-                                    .attr("for", "loginForm-usuario")
-                                    .text("Quem é você?")
-                                    .addClass("loginForm-label")
+        // let $labelInputUsuario = $("<label>")
+        //                             .attr("for", "loginForm-usuario")
+        //                             .addClass("loginForm-label")
 
         let $inputUsuario = $("<input>")
                                 .attr("placeholder", "nome de usuário")
@@ -20,7 +19,7 @@ const LoginUsuario_render = (function($){
                             .text("Ok")
 
         $loginForm
-            .append($labelInputUsuario)
+            // .append($labelInputUsuario)
             .append($inputUsuario)
             .append($btnSubmit)
 
@@ -30,7 +29,7 @@ const LoginUsuario_render = (function($){
     const $LoginStatus = function(usuario){
         let $loginStatus = $("<p>")
                             .addClass("loginStatus")
-                            .text("Logado como: ")
+                            .text("Olá,  ")
 
         let $loginStatus_usuario = $("<span>")
                                     .addClass("loginStatus-usuario")
@@ -68,7 +67,7 @@ const LoginUsuario_render = (function($){
                 logout(props)
                 props.onLogout && props.onLogout()
             })
-            $loginStatus.appendTo(".login")
+            $loginStatus.appendTo(".nav-items__login")
         } else {
             logout(props)
         }
@@ -88,8 +87,8 @@ const LoginUsuario_render = (function($){
                 login(props)
             }
         })
-        $loginForm.appendTo(".login")
-        $loginForm.find("input").focus()
+        $loginForm.appendTo(".nav-items__login")
+        // $loginForm.find("input").focus()
     }
 
     return function(props){
