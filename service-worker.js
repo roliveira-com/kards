@@ -1,3 +1,8 @@
+const version = {
+  current : '5.3',
+  earlier : '5.2'
+}
+
 let files = [
   "/",
   'css/estilos.css',
@@ -32,10 +37,24 @@ let files = [
   'img/edit.svg'
 ]
 
-self.addEventListener("install", function (){
-  caches.open('kards-files').then(cache => {
-    cache.addAll(files);
-  })  
+self.addEventListener("install", () => {
+
+  // caches.open(`kards-files-${version.current}`).then(cache => {
+  //   cache.addAll(files).then(() => {
+  //     caches.delete('kards-files');
+  //     caches.delete(`kards-files-${version.earlier}`)
+  //   });
+  // }) 
+
+})
+
+self.addEventListener("activate", ()=>{
+  caches.open(`kards-files-${version.current}`).then(cache => {
+    cache.addAll(files).then(() => {
+      caches.delete('kards-files');
+      caches.delete(`kards-files-${version.earlier}`)
+    });
+  }) 
 })
 
 self.addEventListener("fetch", function(event){
