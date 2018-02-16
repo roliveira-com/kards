@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br" manifest="app.manifest">
+<html lang="pt-br" manifest="offline.manifest">
 <head>
+	<link rel="manifest" href="app.manifest">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/estilos.css">
@@ -27,9 +28,6 @@
     </div>
   </header>
 	<form class="novoCartao container collapsed">
-		<div class="opcoesDaPagina">
-			<button id="novo-cartao__trigger" class="loginStatus-sair">Novo Cartão</button>
-		</div>
 		<h2 class="novoCartao-titulo"><img src="img/add-kard.svg" alt=""> Novo card</h2>
 		<textarea class="novoCartao-conteudo" name="novoCartao-conteudo" placeholder="Digite aqui"></textarea>
 		<input class="novoCartao-salvar" type="submit" value="Salvar">

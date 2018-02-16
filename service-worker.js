@@ -1,10 +1,10 @@
-const version = {
-  current : '5.3',
-  earlier : '5.2'
+let version = {
+  current : '5.6',
+  earlier : '5.5'
 }
 
 let files = [
-  "/",
+  '/',
   'css/estilos.css',
   'css/opcoesDaPagina.css',
   'css/opcoesDoCartao.css',
@@ -39,6 +39,12 @@ let files = [
 
 self.addEventListener("install", () => {
 
+  //*** */
+  // Condicionar o cacheamento dos arquivos ao evento 'install' pode provocar
+  // inconsistencia de versões quando dua ou mais abas do navegador são abertas.
+  // Para evitar isto, condicionamos ao evento 'activate'
+  //*** */
+
   // caches.open(`kards-files-${version.current}`).then(cache => {
   //   cache.addAll(files).then(() => {
   //     caches.delete('kards-files');
@@ -48,24 +54,26 @@ self.addEventListener("install", () => {
 
 })
 
+
 self.addEventListener("activate", ()=>{
+
   caches.open(`kards-files-${version.current}`).then(cache => {
     cache.addAll(files).then(() => {
       caches.delete('kards-files');
       caches.delete(`kards-files-${version.earlier}`)
     });
   }) 
+
 })
 
-self.addEventListener("fetch", function(event){
-  
+
+self.addEventListener("fetch", function(event){ 
+
   let req = event.request
-  
   let cacheRes = caches.match(req).then(resCached => {
     let res = resCached ? resCached : fetch(req) 
     return res
   })
-  
   event.respondWith(cacheRes);
 
 })
