@@ -1,3 +1,5 @@
+// v2
+
 let files = [
   "/",
   'css/estilos.css',
